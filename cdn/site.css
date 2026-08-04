@@ -1,0 +1,80 @@
+#linguana-lang-switcher-toggle, #linguana-lang-switcher-options-container {
+	background-color:#121212 !important;
+	color:#F6F3EC !important;
+	color:#F6F3EC !important;
+	border:1px #2C2B2A solid !important;
+	border-radius:12px !important;
+}
+.linguana-lang-switcher-label{
+	color:#F6F3EC !important;
+}
+#linguana-lang-switcher-toggle:hover, #linguana-lang-switcher-options-container:hover{
+	background-color:#ffffff !important;
+}
+
+
+
+
+  /* ---- Trigger (stávající pill – ponecháváme původní bílou ikonu, bez šipky) ---- */
+  .mega3-nav-pill--lang{position:relative;cursor:pointer;user-select:none;}
+
+  /* ---- Mobil: kompaktní pill (jen ikona, text skryt) ---- */
+  @media (max-width:767px){
+    .mega3-nav-pill--lang .mega3-nav-pill-text{
+      position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+      clip:rect(0 0 0 0);white-space:nowrap;border:0; /* jen pro čtečky */
+    }
+  }
+
+  /* ---- Dropdown (připojen k <body>, position:fixed → neořízne se) ---- */
+  .lsw-menu{position:fixed;top:0;left:0;min-width:200px;max-width:min(260px,calc(100vw - 16px));
+    z-index:100000;background:#fff;border:1px solid rgba(15,23,42,.10);border-radius:12px;
+    box-shadow:0 12px 32px rgba(15,23,42,.18),0 2px 6px rgba(15,23,42,.06);
+    padding:6px;list-style:none;margin:0;
+    opacity:0;visibility:hidden;transform:translateY(-6px);pointer-events:none;
+    transition:opacity .16s ease,transform .16s ease,visibility .16s;}
+  .lsw-menu.lsw-open{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;}
+  .lsw-item{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;
+    text-decoration:none;color:#0b2646;font-size:14px;line-height:1.2;font-weight:500;
+    white-space:nowrap;transition:background-color .12s ease;min-height:42px;box-sizing:border-box;}
+  .lsw-item:hover,.lsw-item:focus-visible{background:#f1f5fb;outline:none;}
+  .lsw-item:focus-visible{box-shadow:inset 0 0 0 2px #1c63b7;}
+  .lsw-item .lsw-name{flex:1 1 auto;}
+  .lsw-item[aria-current="true"]{font-weight:700;}
+  .lsw-flag{display:block;flex:0 0 auto;height:16px;line-height:0;}
+  .lsw-flag img{display:block;height:16px;width:auto;}
+  .lsw-check{width:16px;height:16px;flex:0 0 auto;color:#1c63b7;opacity:0;}
+  .lsw-item[aria-current="true"] .lsw-check{opacity:1;}
+  @media (prefers-reduced-motion: reduce){ .lsw-menu{transition:none;} }
+
+  /* ---- Globe ikona v pillu se přizpůsobí theme (dark = krémová/bílá, light = tmavá) ---- */
+  /* SVG se načítá jako <img> (stroke #F6F3EC), takže barvíme přes filter. */
+  .mega3-nav-pill-icon--lang{transition:filter .2s ease;}
+  html[data-theme="light"] .mega3-nav-pill-icon--lang{filter:brightness(0);}
+  html[data-theme="dark"] .mega3-nav-pill-icon--lang{filter:none;}
+  @media (prefers-color-scheme: light){
+    html:not([data-theme]) .mega3-nav-pill-icon--lang{filter:brightness(0);}
+  }
+
+  /* ---- Mobilní přepínač jazyků (uvnitř .mega3-mobile) ----
+     Plnošířkové řádky s velkým tap-targetem. Barvy přes currentColor
+     (text se v obou theme obrací proti pozadí → kontrast drží dark i light). */
+  /* inner vyplní výšku overlaye (100dvh − padding 96+48), aby šel blok pinnout dolů */
+  .mega3-mobile .mega3-mobile-inner{min-height:calc(100dvh - 144px);}
+  /* language blok u spodu overlaye (ne přímo pod navigací), bez čáry a nadpisu;
+     padding-top drží odstup, když je obsah dlouhý a margin-top:auto zkolabuje */
+  .lsw-mobile{margin-top:auto;padding-top:18px;padding-bottom:env(safe-area-inset-bottom,0px);}
+  /* Minimalisticky: jazyky vedle sebe (wrap), bez boxu; aktivni = oranzove podtrzeni */
+  .lsw-mobile-list{display:flex;flex-flow:row wrap;gap:10px 22px;}
+  /* Overlay je vzdy cerny → pevna kremova barva webu (token), ne inherit (v light theme byl tmavy) */
+  .lsw-mobile-item{display:inline-flex;align-items:center;gap:8px;padding:6px 1px;
+    text-decoration:none;font-size:15px;line-height:1.3;font-weight:500;
+    color:var(--_colors--tokens---text--body--strong,#f6f3ec);
+    border-bottom:2px solid transparent;opacity:.7;
+    transition:opacity .12s ease,border-color .12s ease;
+    -webkit-tap-highlight-color:transparent;}
+  .lsw-mobile-item:hover,.lsw-mobile-item:focus-visible{opacity:1;outline:none;}
+  .lsw-mobile-item:focus-visible{border-bottom-color:#f18000;}
+  .lsw-mobile-item[aria-current="true"]{opacity:1;border-bottom-color:#f18000;}
+  .lsw-mobile-item .lsw-flag{height:14px;flex:0 0 auto;border-radius:2px;overflow:hidden;}
+  .lsw-mobile-item .lsw-flag img{height:14px;}
