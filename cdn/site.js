@@ -486,7 +486,9 @@
     { code:"en", prefix:"",   name:"English",  cc:"gb" },
     { code:"de", prefix:"de", name:"Deutsch",  cc:"de" },
     { code:"es", prefix:"es", name:"Espa\u00f1ol",  cc:"es" },
-    { code:"fr", prefix:"fr", name:"Fran\u00e7ais", cc:"fr" }
+    { code:"fr", prefix:"fr", name:"Fran\u00e7ais", cc:"fr" },
+    { code:"it", prefix:"it", name:"Italiano", cc:"it" },
+    { code:"pl", prefix:"pl", name:"Polski",   cc:"pl" }
   ];
   var PREFIXES = LOCALES.map(function (l) { return l.prefix; }).filter(Boolean);
 
