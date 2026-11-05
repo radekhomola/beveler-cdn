@@ -669,3 +669,14 @@
   setTimeout(buildMobile, 250);
   setTimeout(buildMobile, 800);
 })();
+
+// Chetty chat widget
+(function () {
+  if (document.querySelector('script[src*="chettyloader.js"][data-customer="beveler"]')) return;
+  var s = document.createElement("script");
+  s.src = "https://chettyconfigstorage.blob.core.windows.net/configuration/Chetty/widget/chettyloader.js";
+  s.async = true;
+  s.setAttribute("data-customer", "beveler");
+  s.setAttribute("data-lang", "en_us");
+  (document.head || document.documentElement).appendChild(s);
+})();
