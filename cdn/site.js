@@ -483,12 +483,14 @@
   // ── Konfigurace jazyků (endonymy). prefix "" = výchozí EN na rootu ──
   // cc = ISO country kód pro flagcdn.com
   var LOCALES = [
-    { code:"en", prefix:"",   name:"English",  cc:"gb" },
-    { code:"de", prefix:"de", name:"Deutsch",  cc:"de" },
-    { code:"es", prefix:"es", name:"Espa\u00f1ol",  cc:"es" },
-    { code:"fr", prefix:"fr", name:"Fran\u00e7ais", cc:"fr" },
-    { code:"it", prefix:"it", name:"Italiano", cc:"it" },
-    { code:"pl", prefix:"pl", name:"Polski",   cc:"pl" }
+    { code:"en", prefix:"",      name:"English",     cc:"gb" },
+    { code:"cs", prefix:"cs-cz", name:"\u010ce\u0161tina",    cc:"cz" },
+    { code:"uk", prefix:"uk",    name:"\u0423\u043a\u0440\u0430\u0457\u043d\u0441\u044c\u043a\u0430", cc:"ua" },
+    { code:"de", prefix:"de",    name:"Deutsch",     cc:"de" },
+    { code:"es", prefix:"es",    name:"Espa\u00f1ol",     cc:"es" },
+    { code:"fr", prefix:"fr",    name:"Fran\u00e7ais",    cc:"fr" },
+    { code:"it", prefix:"it",    name:"Italiano",    cc:"it" },
+    { code:"pl", prefix:"pl",    name:"Polski",      cc:"pl" }
   ];
   var PREFIXES = LOCALES.map(function (l) { return l.prefix; }).filter(Boolean);
 
